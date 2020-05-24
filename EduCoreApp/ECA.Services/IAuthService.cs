@@ -1,8 +1,10 @@
-﻿using System;
+﻿using ECA.Services.ViewModels;
+using System;
 
 namespace ECA.Services
 {
-    public class Class1
+    public interface IAuthService
     {
+        UserViewModel Login(LoginViewModel viewModel);
     }
 }
