@@ -9,7 +9,7 @@ using ECA.Services.Errors;
 
 namespace ECA.Services.Implemintations
 {
-    class AuthService : IAuthService
+    public class AuthService : IAuthService
     {
         private readonly IRepository<User> Repository;
         public AuthService(IRepository<User> repository)
@@ -25,12 +25,12 @@ namespace ECA.Services.Implemintations
 
             if(string.IsNullOrWhiteSpace(viewModel.Email))
             {
-                throw new ArgumentNullException(nameof(viewModel));
+                throw new ArgumentException(nameof(viewModel));
             }
 
             if (string.IsNullOrWhiteSpace(viewModel.Password))
             {
-                throw new ArgumentNullException(nameof(viewModel));
+                throw new ArgumentException(nameof(viewModel));
             }
 
             var user = Repository.Where(x => x.Email == viewModel.Email).FirstOrDefault();
