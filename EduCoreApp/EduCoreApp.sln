@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECA.Services", "ECA.Services\ECA.Services.csproj", "{9611D9B1-CA9A-4B04-8114-2F86D77EB187}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECA.DataAccess", "DataAccess\ECA.DataAccess.csproj", "{F0FBAA0D-C1A1-4A78-99D5-3C5EBF95827C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECA.DataAccess", "ECA.DataAccess\ECA.DataAccess.csproj", "{F0FBAA0D-C1A1-4A78-99D5-3C5EBF95827C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECA.DomainObjects", "ECA.DomainObjects\ECA.DomainObjects.csproj", "{3DD55598-1699-4BC1-B734-2532AA6310D2}"
 EndProject
