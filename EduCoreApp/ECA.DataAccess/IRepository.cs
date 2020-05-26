@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace ECA.DataAccess
 {
-    public interface IRopository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         IQueryable<T> Where(Expression<Func<T, bool>> predicate);
         IQueryable<T> GetAll();
