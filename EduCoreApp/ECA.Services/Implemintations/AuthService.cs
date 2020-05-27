@@ -38,7 +38,8 @@ namespace ECA.Services.Implemintations
             if (user == null)
             {
                 var ex = new NotFoundException($"User with this email was not found.");
-                ex.Data.Add("Email", viewModel.Email);    
+                ex.Data.Add("Email", viewModel.Email);
+                throw ex;            
             }
 
             var password = HashPassword(viewModel.Password);
