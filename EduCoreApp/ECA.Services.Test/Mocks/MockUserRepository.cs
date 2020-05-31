@@ -15,13 +15,13 @@ namespace ECA.Services.Test.Mocks
         {
             Users = new List<User> {
                 new User {
-                    UserId = 1,
+                    UserId = "1",
                     DateCreated = DateTime.Now,
                     Email = "john.doe@example.com",
                     FirstName = "John",
                     LastName = "Doe",
                     LastLoggedIn = DateTime.Now,
-                    PasswordHash = "123456aa",
+                    PasswordHash = "1000:CgToWlPECE5TKFrq5jm5KhFKA6TT8/nf:AHnvXvVr2OzrOcF7AuIDqxyJIJg=",
                     Role = "Admin"
                 }
             };

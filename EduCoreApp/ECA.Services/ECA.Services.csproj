@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ECA.DataAccess\ECA.DataAccess.csproj" />
     <ProjectReference Include="..\ECA.DomainObjects\ECA.DomainObjects.csproj" />
   </ItemGroup>
