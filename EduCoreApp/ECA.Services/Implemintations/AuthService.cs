@@ -10,6 +10,8 @@ using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Security.Cryptography;
 using ECA.Services.Helpers;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace ECA.Services.Implemintations
 {
@@ -102,7 +104,7 @@ namespace ECA.Services.Implemintations
                 throw new TermsNotAcceptedException();
             }
 
-            Repository.Insert(new User
+            var newUser = new User
             {
                 UserId = Guid.NewGuid().ToString(),
                 FirstName = viewModel.FirstName,
@@ -112,19 +114,27 @@ namespace ECA.Services.Implemintations
                 DateCreated = DateTime.UtcNow,
                 PasswordHash = PasswordHash.HashPassword(viewModel.Password),
                 Role = "User"
-            });
+            };
 
-            Repository.SaveChanges();
-
-            var user = Repository.Where(x => x.Email == viewModel.Email).FirstOrDefault();
+            try
+            {
+                Repository.Insert(newUser);
+                Repository.SaveChanges();
+            }
+            catch(DbUpdateException)
+            {
+                var ex = new DbUpdateException("Unable to save changes to the DB.");
+                ex.Data.Add("AddedUser", newUser);
+                throw ex;
+            }
 
             return new UserViewModel()
             {
-                UserId = user.UserId,
-                Email = user.Email,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Role = user.Role
+                UserId = newUser.UserId,
+                Email = newUser.Email,
+                FirstName = newUser.FirstName,
+                LastName = newUser.LastName,
+                Role = newUser.Role
             };
         }
     }
